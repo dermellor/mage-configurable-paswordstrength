@@ -48,7 +48,7 @@ class Shopliebe_PasswordStrength_Model_Customer extends Mage_Customer_Model_Cust
             $errors[] = Mage::helper('customer')->__('The password must contains at least one digit');
         }
 
-        if (empty($errors)) {
+        if (empty($errors) || $password == '') {
             return parent::validate();
         }
         return $errors;
