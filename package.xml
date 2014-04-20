@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Shopliebe_PasswordStrength</name>
+    <version>0.1.0</version>
+    <stability>alpha</stability>
+    <license>OSL</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Allows to configure the required password strength (lenght, required characters e.g) for new passwords.</summary>
+    <description>Allows to configure the required password strength (lenght, required characters e.g) for new passwords.</description>
+    <notes>Initial version</notes>
+    <authors><author><name>Marcel Mellor</name><user>MarcelMellor</user><email>info@mellors.de</email></author></authors>
+    <date>2014-04-19</date>
+    <time>18:30:27</time>
+    <contents><target name="magelocal"><dir name="Shopliebe"><dir name="PasswordStrength"><dir name="Block"><file name="Validation.php" hash="6aa6d9e3652c3c3d5f9bce78122621a2"/></dir><dir name="Helper"><dir name="Helper"><file name="Data.php" hash="2bbc1974b890a16a047298b764a0289b"/></dir></dir><dir name="Model"><file name="Customer.php" hash="7c17a24243c7aae5f77bfdf88697e73a"/></dir><dir name="etc"><file name="config.xml" hash="3c88b78442ac2e352c8a27c2d7b69280"/><file name="system.xml" hash="2a847e87e1db9b1779977f7f8a6aa534"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Shopliebe_PasswordStrength.xml" hash="79e78a8c32a96431f100b773e72721a0"/></dir></target><target name="magelocale"><dir><dir name="de_DE"><file name="Shopliebe_PasswordStrength.csv" hash="97b58229834ff52dcbd9da3ed3054700"/></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="passwordstrength.xml" hash="47b8a4e5c6bc0badf9e87aba42638679"/></dir><dir name="template"><dir name="passwordstrength"><dir name="js"><file name="validation.phtml" hash="9db582dc04254638a64e3e0cf40a7865"/></dir></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>
