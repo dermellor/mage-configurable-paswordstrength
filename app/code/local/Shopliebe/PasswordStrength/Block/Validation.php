@@ -31,13 +31,14 @@ class Shopliebe_PasswordStrength_Block_Validation extends Mage_Core_Block_Templa
         $validitionHelper = Mage::helper('passwordstrength');
         $message = '';
 
-        $message .= $this->__('Please use %s characters', $validitionHelper->getLength());
+        $message .= $this->__('Please use %s characters.', $validitionHelper->getLength());
 
         $validations = array();
-        foreach(array('getUppercase' => 'capital', 'getDigits' => 'digit') as $type => $character){
-            if($validitionHelper->$type()){
-                $validations[] = $this->__('one ' . $character);
-            }        
+        foreach(array('Case' => 'both uppercase and lowercase characters', 'SpecialCharacter' => 'at least one special character') as $type => $validation){
+            $check = 'get' . $type . 'Check';
+            if($validitionHelper->$check()){
+                $validations[] = $this->__($validation);
+            }
         }
 
         return $message . $this->typesToMessage($validations);
@@ -48,11 +49,11 @@ class Shopliebe_PasswordStrength_Block_Validation extends Mage_Core_Block_Templa
         $validitionHelper = Mage::helper('passwordstrength');
         $script = 'if (pass.length < ' . $validitionHelper->getLength() . '){return false;}';
 
-        if($validitionHelper->getUppercase()){
-            $script .= 'if (pass.toLowerCase() == pass){return false;}';
+        if($validitionHelper->getCaseCheck()){
+            $script .= 'if (pass.toLowerCase() == pass || pass.toUpperCase() == pass){return false;}';
         }
-        if($validitionHelper->getDigits()){
-            $script .= 'if (!(/\d/.test(pass))){return false;}';
+        if($validitionHelper->getSpecialCharacterCheck()){
+            $script .= 'if (!(/[^a-zA-Z]+/.test(pass))){return false;}';
         }
 
         return $script;
@@ -62,9 +63,11 @@ class Shopliebe_PasswordStrength_Block_Validation extends Mage_Core_Block_Templa
     {
         if(empty($types)) return '';
         $lastEntry = array_pop($types);
-        $message = ' ' . $this->__('with at least');
-        $message .= (!empty($types) ? ' ' . (implode(', ', $types) . ' ' . $this->__('and')) : '');
-        $message .= ' ' . $lastEntry . '.';
+
+        $validations = (!empty($types) ? ' ' . (implode(', ', $types) . ' ' . $this->__('and')) : '');
+        $validations .= ' ' . $lastEntry ;
+
+        $message = ' ' . $this->__('The Password must contain %s.', $validations);
 
         return $message;
     }

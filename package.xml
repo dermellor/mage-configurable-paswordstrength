@@ -1,18 +1,21 @@
 <?xml version="1.0"?>
 <package>
     <name>Shopliebe_PasswordStrength</name>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <stability>alpha</stability>
     <license>OSL</license>
     <channel>community</channel>
     <extends/>
     <summary>Allows to configure the required password strength (lenght, required characters e.g) for new passwords.</summary>
     <description>Allows to configure the required password strength (lenght, required characters e.g) for new passwords.</description>
-    <notes>Initial version</notes>
-    <authors><author><name>Marcel Mellor</name><user>MarcelMellor</user><email>info@mellors.de</email></author></authors>
-    <date>2014-04-20</date>
-    <time>08:03:23</time>
-    <contents><target name="magelocal"><dir name="Shopliebe"><dir name="PasswordStrength"><dir name="Block"><file name="Validation.php" hash="6aa6d9e3652c3c3d5f9bce78122621a2"/></dir><dir name="Helper"><dir name="Helper"><file name="Data.php" hash="2bbc1974b890a16a047298b764a0289b"/></dir></dir><dir name="Model"><file name="Customer.php" hash="515e1bf68d7856d9c4c3c50b7aaf446a"/></dir><dir name="etc"><file name="config.xml" hash="3c88b78442ac2e352c8a27c2d7b69280"/><file name="system.xml" hash="521c6ef5778188c27c3bc7f0afda1b21"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Shopliebe_PasswordStrength.xml" hash="79e78a8c32a96431f100b773e72721a0"/></dir></target><target name="magelocale"><dir><dir name="de_DE"><file name="Shopliebe_PasswordStrength.csv" hash="97b58229834ff52dcbd9da3ed3054700"/></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="passwordstrength.xml" hash="47b8a4e5c6bc0badf9e87aba42638679"/></dir><dir name="template"><dir name="passwordstrength"><dir name="js"><file name="validation.phtml" hash="9db582dc04254638a64e3e0cf40a7865"/></dir></dir></dir></dir></dir></dir></target></contents>
+    <notes>Modifications of validation types:&#xD;
+&#xD;
+* instead of "must contain uppercase" =&gt; "must contain both uppercase and lowercase characters"&#xD;
+* instead of "must contain digit" =&gt; "must contain special character"</notes>
+    <authors><author><name>Marcel Mellor</name><user>MarcelMellor</user><email>info@mellors.de</email></author><author><name>Marcel Mellor</name><user>shopliebe</user><email>info@shopliebe.de</email></author></authors>
+    <date>2014-04-24</date>
+    <time>08:39:04</time>
+    <contents><target name="magelocal"><dir name="Shopliebe"><dir name="PasswordStrength"><dir name="Block"><file name="Validation.php" hash="48c5f2efc26bd7790643db19695d202a"/></dir><dir name="Helper"><dir name="Helper"><file name="Data.php" hash="df7d6e366c7c0605003730f94deff36c"/></dir></dir><dir name="Model"><file name="Customer.php" hash="b481c9b642feb7d0b005afa04b791050"/></dir><dir name="etc"><file name="config.xml" hash="3c88b78442ac2e352c8a27c2d7b69280"/><file name="system.xml" hash="76877a9d6ec0fc42c5e9f1f27feb7795"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Shopliebe_PasswordStrength.xml" hash="79e78a8c32a96431f100b773e72721a0"/></dir></target><target name="magelocale"><dir><dir name="de_DE"><file name="Shopliebe_PasswordStrength.csv" hash="e007d186d3a4fdd49b14f31d8a969b0f"/></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="passwordstrength.xml" hash="47b8a4e5c6bc0badf9e87aba42638679"/></dir><dir name="template"><dir name="passwordstrength"><dir name="js"><file name="validation.phtml" hash="9db582dc04254638a64e3e0cf40a7865"/></dir></dir></dir></dir></dir></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
 </package>

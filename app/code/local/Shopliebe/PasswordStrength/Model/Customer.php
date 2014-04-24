@@ -40,12 +40,12 @@ class Shopliebe_PasswordStrength_Model_Customer extends Mage_Customer_Model_Cust
             $errors[] = Mage::helper('customer')->__('The minimum password length is %s', $validationHelper->getLength());
         }
 
-        if($validationHelper->getUppercase() && strtolower($password) == $password){
-            $errors[] = Mage::helper('customer')->__('The password must contains at least one uppercase');
+        if($validationHelper->getCaseCheck() && (strtolower($password) == $password || strtoupper($password) == $password)){
+            $errors[] = Mage::helper('customer')->__('The password must contain both uppercase and lowercase characters');
         }
 
-        if($validationHelper->getDigits() && !preg_match('#\d#', $password)){
-            $errors[] = Mage::helper('customer')->__('The password must contains at least one digit');
+        if($validationHelper->getSpecialCharacterCheck() && !preg_match('/[^a-zA-Z]+/', $password)){
+            $errors[] = Mage::helper('customer')->__('The password must contains at least one special character');
         }
 
         if (empty($errors) || $password == '') {

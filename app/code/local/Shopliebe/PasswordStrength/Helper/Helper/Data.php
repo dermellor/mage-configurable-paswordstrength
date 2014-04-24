@@ -25,13 +25,13 @@ class Shopliebe_PasswordStrength_Helper_Helper_Data extends Mage_Core_Helper_Abs
 {
 
     private $_length = 6;
-    private $_useUppercase;
-    private $_useDigits;
+    private $_useCaseCheck;
+    private $_useSpecialCharacterCheck;
 
     public function __construct(){
         $this->setLength(Mage::getStoreConfig('customer/password/password_length'))
-            ->setUppercase(Mage::getStoreConfig('customer/password/password_uppercase'))
-            ->setDigits(Mage::getStoreConfig('customer/password/password_digits'));
+            ->setCaseCheck(Mage::getStoreConfig('customer/password/password_case'))
+            ->setSpecialCharacterCheck(Mage::getStoreConfig('customer/password/password_special_characters'));
         return $this;
     }
 
@@ -57,15 +57,15 @@ class Shopliebe_PasswordStrength_Helper_Helper_Data extends Mage_Core_Helper_Abs
         return $this;
     }
 
-    public function setUppercase($useUppercase)
+    public function setCaseCheck($useCaseCheck)
     {
-        $this->_useUppercase = $useUppercase;
+        $this->_useCaseCheck = $useCaseCheck;
         return $this;
     }
 
-    public function setDigits($useDigits)
+    public function setSpecialCharacterCheck($useSpecialCharacterCheck)
     {
-        $this->_useDigits = $useDigits;
+        $this->_useSpecialCharacterCheck = $useSpecialCharacterCheck;
         return $this;
     }
 
@@ -74,14 +74,14 @@ class Shopliebe_PasswordStrength_Helper_Helper_Data extends Mage_Core_Helper_Abs
         return $this->_length;
     }
 
-    public function getUppercase()
+    public function getCaseCheck()
     {
-        return $this->_useUppercase;
+        return $this->_useCaseCheck;
     }
 
-    public function getDigits()
+    public function getSpecialCharacterCheck()
     {
-        return $this->_useDigits;
+        return $this->_useSpecialCharacterCheck;
     }
     
 }
