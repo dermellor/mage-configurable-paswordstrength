@@ -31,10 +31,10 @@ class Shopliebe_PasswordStrength_Block_Validation extends Mage_Core_Block_Templa
         $validitionHelper = Mage::helper('passwordstrength');
         $message = '';
 
-        $message .= $this->__('Please use %s characters.', $validitionHelper->getLength());
+        $message .= $this->__('Please use at least %s characters.', $validitionHelper->getLength());
 
         $validations = array();
-        foreach(array('Case' => 'both uppercase and lowercase characters', 'SpecialCharacter' => 'at least one special character') as $type => $validation){
+        foreach(array('Case' => 'both uppercase and lowercase characters', 'Number' => 'at least one number', 'SpecialCharacter' => 'at least one special character') as $type => $validation){
             $check = 'get' . $type . 'Check';
             if($validitionHelper->$check()){
                 $validations[] = $this->__($validation);
@@ -52,6 +52,9 @@ class Shopliebe_PasswordStrength_Block_Validation extends Mage_Core_Block_Templa
         if($validitionHelper->getCaseCheck()){
             $script .= 'if (pass.toLowerCase() == pass || pass.toUpperCase() == pass){return false;}';
         }
+        if($validitionHelper->getNumberCheck()){
+            $script .= 'if (!(/[^0-9]+/.test(pass))){return false;}';
+        }
         if($validitionHelper->getSpecialCharacterCheck()){
             $script .= 'if (!(/[^a-zA-Z]+/.test(pass))){return false;}';
         }
@@ -67,7 +70,7 @@ class Shopliebe_PasswordStrength_Block_Validation extends Mage_Core_Block_Templa
         $validations = (!empty($types) ? ' ' . (implode(', ', $types) . ' ' . $this->__('and')) : '');
         $validations .= ' ' . $lastEntry ;
 
-        $message = ' ' . $this->__('The Password must contain %s.', $validations);
+        $message = ' ' . $this->__('The password must contain %s.', $validations);
 
         return $message;
     }

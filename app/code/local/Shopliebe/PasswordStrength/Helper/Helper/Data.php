@@ -26,11 +26,13 @@ class Shopliebe_PasswordStrength_Helper_Helper_Data extends Mage_Core_Helper_Abs
 
     private $_length = 6;
     private $_useCaseCheck;
+    private $_useNumberCheck;
     private $_useSpecialCharacterCheck;
 
     public function __construct(){
         $this->setLength(Mage::getStoreConfig('customer/password/password_length'))
             ->setCaseCheck(Mage::getStoreConfig('customer/password/password_case'))
+            ->setNumberCheck(Mage::getStoreConfig('customer/password/password_number'))
             ->setSpecialCharacterCheck(Mage::getStoreConfig('customer/password/password_special_characters'));
         return $this;
     }
@@ -63,6 +65,13 @@ class Shopliebe_PasswordStrength_Helper_Helper_Data extends Mage_Core_Helper_Abs
         return $this;
     }
 
+    public function setNumberCheck($useNumberCheck)
+    {
+        $this->_useNumberCheck = $useNumberCheck;
+        return $this;
+    }
+
+
     public function setSpecialCharacterCheck($useSpecialCharacterCheck)
     {
         $this->_useSpecialCharacterCheck = $useSpecialCharacterCheck;
@@ -79,6 +88,11 @@ class Shopliebe_PasswordStrength_Helper_Helper_Data extends Mage_Core_Helper_Abs
         return $this->_useCaseCheck;
     }
 
+    public function getNumberCheck()
+    {
+        return $this->_useNumberCheck;
+    }
+    
     public function getSpecialCharacterCheck()
     {
         return $this->_useSpecialCharacterCheck;
