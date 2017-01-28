@@ -1,0 +1,6 @@
+app/code/local/Shopliebe/PasswordStrength  app/code/local/Shopliebe/PasswordStrength
+app/etc/modules/Shopliebe_PasswordStrength.xml  app/etc/modules/Shopliebe_PasswordStrength.xml
+app/locale/de_DE/Shopliebe_PasswordStrength.csv  app/locale/de_DE/Shopliebe_PasswordStrength.csv
+app/locale/pt_BR/Shopliebe_PasswordStrength.csv  app/locale/pt_BR/Shopliebe_PasswordStrength.csv
+app/design/frontend/base/default/layout/passwordstrength.xml  app/design/frontend/base/default/layout/passwordstrength.xml
+app/design/frontend/base/default/template/passwordstrength/js/validation.phtml  app/design/frontend/base/default/template/passwordstrength/js/validation.phtml
