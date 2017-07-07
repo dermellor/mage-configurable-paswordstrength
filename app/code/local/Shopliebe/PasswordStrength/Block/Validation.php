@@ -56,7 +56,7 @@ class Shopliebe_PasswordStrength_Block_Validation extends Mage_Core_Block_Templa
             $script .= 'if (!(/[^0-9]+/.test(pass))){return false;}';
         }
         if($validitionHelper->getSpecialCharacterCheck()){
-            $script .= 'if (!(/[^a-zA-Z]+/.test(pass))){return false;}';
+            $script .= 'if (!(/[^a-zA-Z\d]/.test(pass))){return false;}';
         }
 
         return $script;
