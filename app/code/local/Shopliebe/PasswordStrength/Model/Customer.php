@@ -48,7 +48,7 @@ class Shopliebe_PasswordStrength_Model_Customer extends Mage_Customer_Model_Cust
             $errors[] = Mage::helper('customer')->__('The password must contain at least one number');
         }
 
-        if($validationHelper->getSpecialCharacterCheck() && !preg_match('/[^a-zA-Z]+/', $password)){
+        if($validationHelper->getSpecialCharacterCheck() && !preg_match('/[^a-zA-Z\d]/', $password)){
             $errors[] = Mage::helper('customer')->__('The password must contain at least one special character');
         }
 
